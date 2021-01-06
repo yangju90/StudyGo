@@ -50,6 +50,7 @@ func main() {
 	changeString()
 	sqrtDemo()
 	manCount()
+	gotoDemo()
 }
 
 // 字符串底层是一个byte数组，所以可以和[]byte类型相互转换
@@ -116,4 +117,28 @@ func manCount() {
 		}
 	}
 	fmt.Println("中文字符数:", count)
+}
+
+func gotoDemo() {
+	//breakTag:
+forloop1:
+	for i := 0; i < 10; i++ {
+		for j := 0; j < 10; j++ {
+			if i == 5 && j == 2 {
+				//goto gotoTag
+				//break breakTag
+				continue forloop1
+			}
+
+			fmt.Printf("%d ..... %d", i, j)
+			fmt.Println()
+		}
+	}
+
+	return
+
+	//gotoTag:
+	fmt.Println("结束循环体")
+
+	fmt.Println("继续执行程序")
 }

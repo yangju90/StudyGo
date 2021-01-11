@@ -23,6 +23,13 @@ func main() {
 	fmtDemo.SprintDemo()
 	fmtDemo.ErrorDemo("原始错误")
 	fmtDemo.Print()
+
+	// 标准输入Scan、bufio、Sscan、Fscan
+	// fmtDemo.ScanDemo()
+	// fmtDemo.ScanfDemo()
+	// fmtDemo.ScanlnDemo()
+	fmtDemo.BufioDemo()
+	fmtDemo.SscanDemo()
 }
 
 func initA() {

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 // Slice 相当与ArrayList
@@ -15,6 +16,17 @@ import (
 func main() {
 	fmt.Println("======= start Slice Demo ==========")
 	demo2()
+
+	a := 3
+
+	var b *int = &a
+
+	fmt.Println(*b)
+	fmt.Println(b)
+
+	demoAppend()
+	demoCp()
+	example()
 }
 
 func demo1() {
@@ -49,4 +61,45 @@ func demo2() {
 	fmt.Println(len(m))
 	fmt.Println(m[1])
 
+}
+
+// append 内建函数
+func demoAppend() {
+	s := []int{} // 没有必要初始化
+	s = append(s, 1, 2, 3)
+	fmt.Println(s)
+
+	var s1 = make([]int, 10) // 没有必要初始化
+	s1 = append(s1, 1, 2, 3)
+	fmt.Println(s1)
+
+	s2 := append(s, s1...)
+	fmt.Println(s2)
+}
+
+// copy 内建函数
+func demoCp() {
+	a := []int{1, 2, 3, 4, 5}
+	b := make([]int, 5, 10)
+	copy(b, a)
+	fmt.Println(a)
+	fmt.Println(b)
+
+	b[0] = 1000
+	fmt.Println(a)
+	fmt.Println(b)
+
+}
+
+func example() {
+	var a = make([]string, 5, 10)
+	for i := 0; i < 10; i++ {
+		a = append(a, fmt.Sprintf("%v", i))
+	}
+	fmt.Println(a)
+	fmt.Println(len(a))
+
+	var s = [...]int{3, 7, 8, 9, 1}
+	sort.Ints(s[:])
+	fmt.Println(s)
 }

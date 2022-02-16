@@ -72,7 +72,7 @@ func demoAppend() {
 	var s1 = make([]int, 10) // 没有必要初始化
 	s1 = append(s1, 1, 2, 3)
 	fmt.Println(s1)
-
+	// append 添加切片 需要 s1...
 	s2 := append(s, s1...)
 	fmt.Println(s2)
 }

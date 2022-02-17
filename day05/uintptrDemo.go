@@ -33,6 +33,7 @@ func moditfyPtrV(x *int) {
 func demoMakeNew() {
 	var c *int
 	c = new(int)
+	*c = 1
 	fmt.Println(c)
 
 	a := new(int)

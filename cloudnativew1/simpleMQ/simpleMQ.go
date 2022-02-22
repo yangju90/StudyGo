@@ -30,9 +30,10 @@ func main(){
 	go consumer(mq)
 	go prod(mq)
 
+	
 
 	time.Sleep(time.Second)
-	// 二次使用channel 报错
+
 	if v, notClose := <- mq; notClose{
 		fmt.Println(v)
 	}

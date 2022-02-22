@@ -37,16 +37,17 @@ func forRangeTest(){
 			fmt.Println("Put:" , i)
 			ch1 <- i
 		}
-		// 内部方法栈未结束， channel 未回收
-		close(ch1)
+		// close(ch1)
+	}()
+	
+	go func() {
+		for v := range ch1 {
+			fmt.Println("receiving: ", v)
+		}
 	}()
 
-	for v := range ch1 {
-		fmt.Println("receiving: ", v)
-	}
-
 	
-	// time.Sleep(time.Second)
+	time.Sleep(time.Second)
 }
 
 
